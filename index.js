@@ -44,7 +44,7 @@ app.use("/static", express.static("public"));
 app.get("/", (req, res) => {
   res.send({
     service: "Online",
-    version: require("./package.json").version,
+    version: require(__dirname + "/package.json").version,
   });
 });
 
