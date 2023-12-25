@@ -1,10 +1,29 @@
 const express = require("express");
+const cors = require('cors')
 const app = express();
 const port = 3000 || process.env.PORT;
 const ejs = require("ejs");
 
 // Load environment variables
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
+
+
+// CORS
+const whitelistSetting = {
+  production: process.env.DOMAIN_WHITELIST || [],
+  development: [],
+}
+const whitelist = whitelistSetting[process.env.NODE_ENV] || []
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!whitelist.length || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+app.use(cors(corsOptions))
 
 
 // Import mailer service
