@@ -1,11 +1,11 @@
 const express = require("express");
 const cors = require('cors')
 const app = express();
-const port =  process.env.PORT || 3000
 const ejs = require("ejs");
 
 // Load environment variables
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
+const port = process.env.PORT || 3000
 
 // CORS
 const whitelistSetting = {
