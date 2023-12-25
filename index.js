@@ -45,6 +45,7 @@ app.get("/", (req, res) => {
   res.send({
     service: "Online",
     version: require(__dirname + "/package.json").version,
+    senderEmailAddress: process.env.SENDER_EMAIL_ADDRESS,
   });
 });
 
