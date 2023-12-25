@@ -7,7 +7,6 @@ const ejs = require("ejs");
 // Load environment variables
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
-
 // CORS
 const whitelistSetting = {
   production: process.env.DOMAIN_WHITELIST || [],
@@ -45,7 +44,7 @@ app.use("/static", express.static("public"));
 app.get("/", (req, res) => {
   res.send({
     service: "Online",
-    version: "1.0.0",
+    version: require("./package.json").version,
   });
 });
 
