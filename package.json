@@ -1,6 +1,6 @@
 {
   "name": "node-mailer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Service for sending emails",
   "main": "index.js",
   "scripts": {
